@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: 23 20 20;
+  --muted: 80 70 70;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--ink));
+  background: #f7e7ea; /* fallback */
+}
+
+/* Soft rose-gold shimmer (subtle + bridal) */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.rose-gold-shimmer {
+  background-image:
+    radial-gradient(1200px 600px at 20% 10%, rgba(180, 120, 150, 0.25), transparent 60%),
+    radial-gradient(900px 500px at 85% 15%, rgba(255, 215, 200, 0.35), transparent 55%),
+    radial-gradient(1100px 700px at 50% 80%, rgba(160, 110, 140, 0.20), transparent 60%),
+    linear-gradient(
+      120deg,
+      rgba(255, 228, 225, 0.40) 0%,
+      rgba(232, 180, 160, 0.40) 25%,
+      rgba(255, 245, 240, 0.70) 50%,
+      rgba(232, 180, 160, 0.40) 75%,
+      rgba(255, 228, 225, 0.40) 100%
+    );
+  background-size: 120% 120%, 120% 120%, 120% 120%, 300% 300%;
+  animation: shimmer 14s ease-in-out infinite;
+}
+
+.container-pad {
+  @apply mx-auto max-w-6xl px-5;
+}
+
+.card {
+  @apply rounded-2xl bg-white/70 backdrop-blur-md border border-rose-200 shadow-sm;
+}
+
+.h1 {
+  @apply text-4xl md:text-5xl font-semibold leading-tight;
+}
+
+.h2 {
+  @apply text-2xl md:text-3xl font-semibold;
+}
+
+.p-muted {
+  @apply text-[rgb(var(--muted))] leading-relaxed;
+}
+
+.btn-primary {
+  @apply rounded-xl bg-gradient-to-r from-rose-300 via-rose-400 to-amber-300
+  text-neutral-900 px-5 py-3 text-sm font-medium shadow-md hover:opacity-90;
+}
+
+.btn-secondary {
+  @apply rounded-xl border border-rose-300 bg-white/60 px-5 py-3 text-sm font-medium
+  text-neutral-800 hover:bg-white;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full border border-rose-200 bg-white/60 px-3 py-1 text-xs text-neutral-800;
+}
+
+.link {
+  @apply underline underline-offset-4 hover:opacity-80;
+}
